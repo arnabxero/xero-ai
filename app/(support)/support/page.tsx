@@ -115,7 +115,7 @@ export default function Support() {
                     </div>
                     <ScrollArea className="h-[200px] flex w-full rounded-md border p-2 items-center">
                         {fetchedData.slice().reverse().map((document, index) => (
-                            <Card className="p-2 m-2 hover:shadow-md transition" key={index}>
+                            <Card className="p-2 m-2 hover:shadow-md transition cursor-pointer" key={index}>
                                 {document.message}
                             </Card>
                         ))}
