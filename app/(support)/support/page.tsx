@@ -59,6 +59,7 @@ export default function Support() {
             if (response.ok) {
                 console.log('Successfully submitted');
                 alert('Successfully submitted');
+                await handleFetchData();
             } else {
                 console.log('Failed to submit');
                 alert('Failed to submit');
@@ -103,7 +104,7 @@ export default function Support() {
                     <DialogTitle>
                         <div>
                             Hello World
-                            <p>Email: {user.primaryEmailAddress.emailAddress}</p>
+                            <p>Email: {user.primaryEmailAddress?.emailAddress}</p>
                         </div>
                     </DialogTitle>
                 </DialogHeader>
@@ -113,7 +114,7 @@ export default function Support() {
                         <Button type="submit" onClick={handleSubmit}>Submit</Button>
                     </div>
                     <ScrollArea className="h-[200px] flex w-full rounded-md border p-2 items-center">
-                        {fetchedData.map((document, index) => (
+                        {fetchedData.slice().reverse().map((document, index) => (
                             <Card className="p-2 m-2 hover:shadow-md transition" key={index}>
                                 {document.message}
                             </Card>
